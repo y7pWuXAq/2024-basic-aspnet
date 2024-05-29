@@ -2,6 +2,7 @@
 IoT 개발자 과정 ASP.NET 리포지토리
 
 
+
 ### DAY 01
 
 - 웹기술 개요
@@ -50,11 +51,29 @@ IoT 개발자 과정 ASP.NET 리포지토리
     - 기본 확장자 .html
     - Tip!! : lorem > 탭! > 긴 샘플 텍스트가 생성됨
 
-    - 요소(body)
-        - h1 ~ h2 : 제목(마크다운의 # 과 동일 h6으로 갈수록 글씨가 작아짐)
-       
+    - 기본 태그 (body에 사용)
+
+        - h1 ~ h6 : 제목(마크다운의 # 과 동일 h6으로 갈수록 글씨가 작아짐)
+
+        ```html
+        <body> <!-- 화면에 나타남! 문서의 구성 부분 -->
+            <h1>Hello, HTML5 ^0^!</h1>
+
+            <!-- h : 헤딩(제목1, 제목2 ~ 제목6) -->
+            <!-- 글씨크기 1 > 6 -->
+            <h2>Heading2</h2>
+            <h3>Heading3</h3>
+            <h4>Heading4</h4>
+            <h5>Heading5</h5>
+            <h6>Heading6</h6>
+        </body>
+        ```
+
+        - 웹 페이지 적용 화면
+
         ![h1~h6 예시](https://raw.githubusercontent.com/y7pWuXAq/2024-basic-aspnet/main/images/aspn01.png)
         
+
         - p : 일반 문장
         - div : 그룹화 구분자, 아주 중요함!!(CSS 연계 디자인)
         - img : 이미지 표현
@@ -84,13 +103,15 @@ IoT 개발자 과정 ASP.NET 리포지토리
             </div>
 
             <p><strong>Lorem</strong> ipsum dolor sit, <b>amet</b> consectetur adipisicing elit.<br><em>Odit qui pariatur recusandae dolor,</em>
-                <br>eius reiciendis quibusdam <mark>magnam beatae nulla</mark> accusamus consequatur <u>debitis</u> id dicta <strike>nesciunt</strike> saepe sequi esse iusto iste!</p>
+                <br>eius reiciendis quibusdam <mark>magnam beatae nulla</mark> accusamus consequatur
+                <br><u>debitis</u> id dicta <strike>nesciunt</strike> saepe sequi esse iusto iste!</p>
             <p>특수기호 : &lt; &gt; &amp; &copy; &nbsp; &plusmn;</p>
         </body>
         ```
 
-        ![웹 페이지](https://raw.githubusercontent.com/y7pWuXAq/2024-basic-aspnet/main/images/aspn02.png)
+        - 웹 페이지 적용 화면
 
+        ![웹 페이지](https://raw.githubusercontent.com/y7pWuXAq/2024-basic-aspnet/main/images/aspn02.png)
 
 
         - **a : 웹페이지 링크(중요!)**
@@ -157,6 +178,8 @@ IoT 개발자 과정 ASP.NET 리포지토리
             </body>
         ```
         
+        - 웹 페이지 적용 화면
+
         ![웹 페이지](https://raw.githubusercontent.com/y7pWuXAq/2024-basic-aspnet/main/images/aspn03.png)
 
 
@@ -180,4 +203,60 @@ IoT 개발자 과정 ASP.NET 리포지토리
         </body>
         ```
 
+        - 웹 페이지 적용 화면
+
         ![웹 페이지](https://raw.githubusercontent.com/y7pWuXAq/2024-basic-aspnet/main/images/aspn04.png)
+
+
+        - hr : 가로선
+        - small : 글씨 작게
+        - sub : 아래첨자
+        - sup : 위 첨자
+
+    - 양식 태그(body > Form 안에 사용 필수)
+        - frint-end 에서 입력한 내용이 back-end로 보내기 위한 관문
+        - form 을 반드시 사용
+
+        - input
+            - type="text" : 텍스트 박스
+            - type="password" : 패스워드 박스
+            - type="button" : 일반 버튼
+            - **type="submit" : 제출(!)**
+                - submit 클릭 시 loopback(값 전달) 발생
+            - checkbox : 체크박스
+            - radio : 라디오 버튼
+            - file : 파일 업로드
+            - image : 이미지 (img와 유사)
+            - reset : 폼 내의 입력양식 태그 값 초기화
+            - hidden : 숨김값(유용하게 사용!!)
+
+        - textarea : 여러행 텍스트 입력
+        - select : 콤보박스
+        - fieldset : 그룹박스
+        
+        - 값 전달 방법
+            - GET : URL 뒤 ? 다음에 key=value&key=value ... 방식으로 데이터를 전달하는 방식
+            - POST : 화면 뒤로 숨겨서 데이터를 전달하는 방식
+    
+    - 공간 구분 태그
+        - div : 블록 형식으로 공간 분할
+        - span : 인라인 형식으로 공간 분할
+
+    - HTML + CSS + Javascript
+        - 내부 스타일, 외부 스타일, 인라인 스타일
+        - 내부 스크립트, 외부 스크립트, 인라인 스크립트
+
+    - 오류, 디버그
+        - F12 개발자 도구로 활용
+
+
+
+### DAY 02
+
+- HTML5
+    - 시맨틱 태그
+
+- CSS3
+    - 웹 디자인 핵심
+
+- Javascript

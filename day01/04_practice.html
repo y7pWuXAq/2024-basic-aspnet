@@ -1,0 +1,42 @@
+<!-- DAY01 24. 05. 29 -->
+<!-- 04_practice.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>스타일, 스크립트 사용법</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+
+    <!-- style, script 안의 주석은 C, C++ 형식으로 사용 /* */ -->
+    <style>
+        /* CSS를 HTML 내부에 적용하는 방법 */
+        h1 {
+            color: white;
+            background-color: cadetblue;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="practice.css" >
+
+    <!-- 내부 스크립트 <script> 태그는 <body> 내에도 작성 가능 -->
+    <script>
+        /* 주석 */
+        var name = prompt("이름을 입력하세요"); // prompt() : 파이썬의 input과 같음
+        alert("내 이름은? " + name); // alert() = Messagebox.Show()
+    </script>
+
+    <script src="practice.js"></script>
+
+</head>
+<body>
+    <h1>HTML Start!!</h1>
+    <h2>WOW!!</h2>
+    <h1>Second heading1</h1>
+    <h2>Second heading2</h2>
+    <h2 style="color: lightslategray;">Second heading2</h2> <!-- practice.css 우선 적용, 이후 개별 설정 적용 -->
+</body>
+</html>
