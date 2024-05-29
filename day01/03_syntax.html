@@ -14,8 +14,84 @@
     <p>재밌는 웹프로그래밍 입문</p> <!-- 문장(paragraph) -->
 
     <div> <!-- <div> : 의미X, 그룹핑하는 것. 화면상 변화는 없음 -->
-        <h1>두 번째 제목</h1>
-        <p>진짜 재밌지?</p>
+        <h1 title="header">두 번째 제목</h1> <!-- title="header" : h1의 속성 -->
+        <p>나 : 진짜 재밌다고?</p>
+        <img src="./cat.png"> <!-- 이미지 태그 -->
     </div>
+
+    <p><strong>Lorem</strong> ipsum dolor sit, <b>amet</b> consectetur adipisicing elit.<br><em>Odit qui pariatur recusandae dolor,</em>
+        <br>eius reiciendis quibusdam <mark>magnam beatae nulla</mark> accusamus consequatur <u>debitis</u> id dicta <strike>nesciunt</strike> saepe sequi esse iusto iste!</p>
+    <p>특수기호 : &lt; &gt; &amp; &copy; &nbsp; &plusmn;</p>
+
+    <!-- HTML에서 제일 중요한 태그, 링크 태그 -->
+    <!-- _blank(새창), _self(현재페이지) -->
+    <a href="https://www.namver.com">네이버</a> <!-- 기존 페이지를 덮고 새 페이지 열기 -->
+    <a href="https://www.namver.com" target="_blank">네이버 새 탭에서 열기</a> <!-- target="_blank" : 새 탭에서 열기 -->
+    <a href="mailto:메일주소@naver.com">메일보내기</a> <!-- mailto: 메일 보내기 안되는 경우도 많음 -->
+
+
+    <div> <!-- 순번 없는 목록 ul -->
+        <ul>
+            <li>복숭아</li>
+            <li>딸기</li>
+            <li>바나나</li>
+        </ul>
+    </div>
+
+    <div>
+        <ol> <!-- 순번 있는 목록 ol -->
+            <li>봄
+                <ul> <!-- 따로 추가도 가능 -->
+                    <li>벚꽃</li>
+                    <li>중간고사</li>
+                </ul>
+            </li>
+            <li>여름</li>
+            <li>가을</li>
+            <li>겨울</li>
+        </ol>
+    </div>
+
+    <!-- 테이블 -->
+    <table border="1">
+        <caption> <!-- 테이블에 제목을 쓸 때 -->
+            <strong>제목</strong>
+        </caption>
+        <tr>
+            <th>1번셀</th>
+            <th>2번셀</th>
+            <th>3번셀</th>
+            <th>4번셀</th>
+        </tr>
+        <tr>
+            <td>90</td>
+            <td>80</td>
+            <td colspan="2">95</td>
+        </tr>
+        <tr>
+            <td>90</td>
+            <td>80</td>
+            <td>95</td>
+            <td rowspan="2">100</td>
+        </tr>
+        <tr>
+            <td>90</td>
+            <td>80</td>
+            <td>95</td>
+        </tr>
+    </table><br><br>
+
+    <!-- 오디오, 비디오, PDF 추가 -->
+    <audio controls>
+        <source src="./sample.mp3">
+    </audio><br><br>
+
+    <video controls width="500">
+        <source src="./sample.mp4">
+    </video><br>
+
+    <object type="application/pdf"
+        data="./sample.pdf" 
+        width="250" height="380">
 </body>
 </html>
