@@ -102,7 +102,8 @@ IoT 개발자 과정 ASP.NET 리포지토리
                 <img src="./cat.png"> <!-- 이미지 태그 -->
             </div>
 
-            <p><strong>Lorem</strong> ipsum dolor sit, <b>amet</b> consectetur adipisicing elit.<br><em>Odit qui pariatur recusandae dolor,</em>
+            <p><strong>Lorem</strong> ipsum dolor sit, <b>amet</b> consectetur adipisicing elit.
+                <br><em>Odit qui pariatur recusandae dolor,</em>
                 <br>eius reiciendis quibusdam <mark>magnam beatae nulla</mark> accusamus consequatur
                 <br><u>debitis</u> id dicta <strike>nesciunt</strike> saepe sequi esse iusto iste!</p>
             <p>특수기호 : &lt; &gt; &amp; &copy; &nbsp; &plusmn;</p>
@@ -240,23 +241,47 @@ IoT 개발자 과정 ASP.NET 리포지토리
     
     - 공간 구분 태그
         - div : 블록 형식으로 공간 분할
-        - span : 인라인 형식으로 공간 분할
+        - span : 인라인 형식(한 줄)으로 공간 분할
 
     - HTML + CSS + Javascript
         - 내부 스타일, 외부 스타일, 인라인 스타일
         - 내부 스크립트, 외부 스크립트, 인라인 스크립트
 
     - 오류, 디버그
-        - F12 개발자 도구로 활용
+        - 웹 브라우저에서 F12 개발자 도구로 활용
 
 
 
 ### DAY 02
 
 - HTML5
-    - 시맨틱 태그
+    - 시맨틱 웹 : 시맨틱 태그로 화면의 구조를 잡는 웹구성 방식
+        - header, nav, footer, aside, section, article ... 태그 사용
+        - 시맨틱 태그를 <div>로 바꿔도 동작 이상 없기 때문에 요새는 많이 사용하지 않음. 걷어내고 있는 추세
 
 - CSS3
-    - 웹 디자인 핵심
+    - 웹 디자인 핵심, Cascading Style Sheets
+    - 상단의 <body> 부터 하위 태그들에 계속해서 적용되는 스타일이라는 뜻
+    - 선택자에게 주어지는 디자인 속성
+    - 선택자 (selector)
+    - 속성 (property)
+
+    - 배경, 폰트 ...
+        - https://fonts.google.com/?subset=korean
+        - http://css3generator.com/\
+        - https://cssgenerator.org/
+
+    - 레이아웃
+        - HTML만으로는 화면 레이아웃이 만들어지지 않음
+        - 중앙정렬, OneTrueLayout, 고정바 ... 
+    
+    - 반응형 웹(Responsive Web)
+        - 메타 태그 viewport를 사용하면 그때부터 반응형 웹이 된다.
+        
+        ```html
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        ```
+
+        - @media 태그 : 디바이스 종류별로 CSS 따로 디자인 가능
 
 - Javascript

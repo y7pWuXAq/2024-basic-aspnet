@@ -1,0 +1,167 @@
+<!-- DAY02 24. 05. 30 -->
+<!-- 01_css_basic.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>CSS 기본</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        /* CSS 기본 문법
+            선택자 {키:값; 키:값; 키:값; ... } 
+            선택자 부분에 '*' : 모든 태그 적용 */
+        h1 {
+            color: white;
+            background-color: lightcoral;
+            margin: 10px; padding: 10px; /* margin(바깥여백), padding(안쪽여백) */
+        }
+        h2 {
+            color:salmon;
+        }
+
+        h1, h2 {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #header { /* 아이디 선택자 : div 태그의 id 앞에 '#' 사용 */
+            width: 600px;
+            margin: 0 auto; /* margin: 0 auto; 웹사이트 크기를 변경해도 항상 중앙에 위치 */
+            background-color: lightpink;
+        }
+
+        #section {
+            width: 600px; margin: 0 auto;
+            overflow: hidden; /* 자식 객체 사이즈가 600을 넘어가면 어떻게 처리할건지 */
+        }
+
+        #content {
+            width: 400px; height: 200px;
+            float: left;
+            background-color: indianred;
+        }
+
+        #aside {
+            width: 200px;
+            float: right;
+            background-color: lightcoral;
+        }
+
+        /* 클래스 선택자 : 같은 클래스를 만들어서 모두 적용 가능 앞에 '.' 사용 */
+        .favorite {
+            color: rosybrown;
+        }
+
+        .options {
+            background-color: firebrick;
+        }
+
+        /* 속성 선택자 */
+        input[type="text"] {background-color: rgb(253, 227, 231);}
+        input[type="password"] {background-color: rgb(253, 227, 231);}
+        input[type="submit"] {color: white; background-color: indianred;}
+
+        /* 후손 선택자 */
+        #header h4 { color: whitesmoke; }
+
+        /* 자손 선택자 */
+        #section > #content {font-style: italic;}
+
+        /* 반응 선택자 */
+        h1:hover { color: crimson; } /* 마우스를 올렸을 때 */
+        h1:active { color: black;} /* 클릭 했을 때 */
+        
+        /* 상태 선택자 */
+        input:disabled { background-color: lightgray; }
+
+        /* 구조 선택자 */
+        .second-nav > ul { overflow: hidden; }
+        .second-nav li {
+            list-style: none; color: black;
+            float: left; padding: 10px;
+        }
+        .second-nav li:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+        .second-nav li:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        .second-nav li:nth-child(2n+1) {
+            background-color: #ffc0c0;
+        }        
+        
+        .second-nav li:nth-child(2n) {
+            background-color: #ffe0df;
+        }
+
+        /* margin, border, padding 은 left, right, top, bottom 여백 개별설정 가능 */
+        .box {
+            width: 100px; height: 100px;
+            background-color: #c8ebb2;
+            border: 20px solid #a8e084;
+            margin: 20px ; padding: 30px ;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <h1>CSS Basic</h1><br>
+    <h2>Basic 문법</h2>
+    <hr>
+    <div>
+        <ul>
+            <li class="favorite options">기본 선택자</li>
+            <li>아이디, 클래스 선택자</li>
+            <li>속성 선택자</li>
+            <li class="favorite">후손 선택자</li>
+        </ul>
+    </div><br><hr>
+    <div id="header">
+        <h3 class="favorite"># header 영역</h3>
+        <div id="nav">
+            <h4>Navigation(메뉴) 영역</h4>
+        </div>
+        <div>
+            <h4>~옵션입니다~</h4>
+        </div>
+    </div>
+    <div id="section">
+        <!-- 속성 id는 같은 값을 한 페이지에 두 개 넣으면 안 됨! -->
+        <div id="content">
+            <h3># content 영역</h3>
+        </div>
+        <div id="aside">
+            <h3># aside 영역</h3>
+            <ul id="menu">
+                <li><a href="#">예매하기</a></li>
+                <li>티켓확인</li>
+                <li>예약안내</li>
+            </ul>
+        </div>
+    </div>
+    <br><hr><br>
+    <form>
+        <input type="text" disabled="disabled"><br>
+        <input type="password">
+        <input type="submit">
+    </form>
+    <br><hr><br>
+    <div class="second-nav">
+        <ul>
+            <li>첫 번째 메뉴</li>
+            <li>두 번째 메뉴</li>
+            <li>세 번째 메뉴</li>
+            <li>네 번째 메뉴</li>
+            <li>다섯 번째 메뉴</li>
+            <li>여섯 번째 메뉴</li>
+            <li>일곱 번째 메뉴</li>
+        </ul>
+    </div>
+    <br><hr>
+    <div class="box"></div>
+</body>
+</html>
