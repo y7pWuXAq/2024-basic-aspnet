@@ -1,0 +1,32 @@
+<!-- DAY02 24. 05. 31 -->
+<!-- js06_domevent.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>JS DOM EVENT</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function(event) { // 밖 이벤트는 온로드 이벤트
+            var btnNomal = document.getElementById('btnNomal');
+
+            btnNomal.onclick = function(event) { // 포인트 이벤트
+                console.log(event);
+                alert('그나마 일반적인 이벤트 처리!')
+            }
+
+            var link = document.getElementById('link');
+            link.onclick = function() {
+                return false; // 이벤트 제거
+            } // 아래 링크를 눌러도 네이버 창이 뜨지 않음
+        };
+    </script>
+</head>
+<body>
+    <!-- 인라인 이벤트 or 함수호출은 옛날 방식 사용X -->
+    <button id="btnNomal">CLICK!</button>
+    <a id="link" href="https://www.naver.com" target="_blank">네이버</a>
+</body>
+</html>

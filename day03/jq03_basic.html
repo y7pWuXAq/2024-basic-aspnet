@@ -1,0 +1,67 @@
+<!-- DAY02 24. 05. 31 -->
+<!-- jq03_basic.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>jQuery Basic 03</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        /* jQuery로 이벤트 적용하는 방법 */
+        $(document).ready(function() {
+            $('#obj').css({
+               width: 100,
+               height: 100,
+               'background-color': 'lightpink' 
+            }).on('mouseover', function() {
+                $(this).css('background-color', 'lightblue');
+            }).on('mouseleave', function() {
+                $(this).css('background-color', 'lightpink');
+                $(this).css('border-radius', '0px');
+            }).on('click', function() {
+                $(this).css('border-radius', '50px');
+            });
+
+            // jQuery에는 js의 on을 빼고 이벤트를 구현할 수 있음
+            $('#push').click(function() {
+                alert('눌렀다!');
+            });
+
+            // jQuery의 강력한 기능
+            $('#toggle').on('click', function() {
+                // fadeToggle, fadeOut(그냥사라짐 다시 나타나지X), fadeIn, hide, slideToggle ...
+                // slow, normal, fast ... 
+                $('.page').fadeToggle('slow');
+            });
+
+            $('#box').css({
+                width: 100,
+                height: 100,
+                'background-color': 'lightblue'
+            }).animate({
+                width: 400,
+                opacity: 0.5, // 투명도
+            }, 2000).animate({
+                width: 100,
+                opacity: 1,
+            }, 2000); 
+        });
+    </script>
+    <style>
+        * { margin: 10px auto; }
+    </style>
+</head>
+<body>
+    <div id="obj"></div>
+    <button id="push">PUSH</button>
+    <button id="toggle">TOGGLE</button>
+    <div class="page">
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum voluptatem iste natus expedita ad corrupti accusantium nulla repellendus maiores, perferendis minus. Numquam ab quam quisquam, quia suscipit soluta. Deleniti, quis!</p>
+    </div><br>
+    <div id="box"></div>
+</body>
+</html>

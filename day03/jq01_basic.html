@@ -1,0 +1,72 @@
+<!-- DAY02 24. 05. 31 -->
+<!-- jq01_basic.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>jQuery Basic 01</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- 이제부터 jQuery를 사용하겠다! -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        /* VanilaScript로 만든 DOM 제어 */
+        /* window.onload = function(){
+            var headers = document.querySelectorAll('h1');
+
+            for (var i = 0; i <headers.length; i++){
+                var header = headers[i];
+                header.style.color = 'red';
+                header.style.backgroundColor = 'darkgreen';
+            }
+        } */
+
+        //  위 코드를 jQuery로 쓴다면...!
+        $(document).ready(function () {
+            $('h1').css('color', 'beige');
+            $('h1').css('background-color', 'lightblue');
+
+            var charset = $('script').attr('src'); // getAttribute();
+            console.log(charset);
+
+            // setAtrribute();
+            $('img').attr('src', 'https://via.placeholder.com/320x200')
+            $('img').attr('width', '100px')
+
+            $('img').attr({
+                src: function (index) {
+                    var size = (index + 1) * 100;
+                    return 'https://via.placeholder.com/' + size + 'x100';
+                }
+            });
+
+            $('.box').css('margin', 10);
+            $('.box').css('width', 90);
+            $('.box').css('height', 90);
+            $('.box').css('background-color', 'lightgreen');
+            $('.box').css('float', 'left');
+        });
+    </script>
+
+</head>
+
+<body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+
+    <img>
+    <img>
+    <img>
+
+    <div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>

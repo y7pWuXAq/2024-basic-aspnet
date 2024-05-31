@@ -1,0 +1,42 @@
+<!-- DAY02 24. 05. 31 -->
+<!-- js04_dom.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>JS DOM 03</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        window.onload = function() {
+            /* getElementById(), querySelector() : 객체 하나를 가져오는 역할 */
+            var header = document.getElementById('header');
+            console.log(typeof(header));
+
+            /* 문서 객체 조작 시작 */
+            header.style.color = 'white';
+            header.style.backgroundColor = 'lightblue';
+            header.innerHTML = 'DOM Control!'; // 텍스트 요소 제어
+
+            // 여러개 선택
+            var heding3 = document.querySelectorAll('h3'); // h3 모두 선택
+            console.log(typeof(heding3)); // 출력 결과 object, 하지만 배열임
+
+            for (var i = 0; i < heding3.length; i++) {
+                var h3 = heding3[i]; // 배열처럼 하나씩 가져옴
+                h3.style.color = 'white';
+                h3.style.backgroundColor = 'skyblue';
+                h3.innerHTML = 'heading3 ' + (i+1); // 텍스트 요소 제어
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 id="header">Heding01</h1>
+    <h2 id="header">Heding02</h2>
+    <h3>Heding03</h3>
+    <h3>헤딩 03</h3>
+    <h3>Heding 삼</h3>
+</body>
+</html>
