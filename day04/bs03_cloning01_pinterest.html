@@ -6,7 +6,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>필터레스트 클로닝</title>
+    <title>핀터레스트 클로닝</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!-- 탭에 들어가는 아이콘-->
     <link rel="icon" href="./images/pinterest.ico">
@@ -14,6 +14,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
           crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- 우리가 만든 CSS가 적용됨.  -->
     <style>
         /* 기본 스타일 */
@@ -22,14 +24,14 @@
         a:hover{text-decoration: underline;}
 
         img { margin: 0; border: 0;}
-        body { background-color: #f7f5f5;}
+        /* body { background-color: #f7f5f5;} */
 
         /* 디자인 적용 */
         #main-section { margin: 0 auto; margin-top: 80px;}
         .paper { width: 180px; margin: 10px 5px; padding: 0;
                  font-size: smaller; background-color: white;
                  border-radius: 10px; position: relative;
-                box-shadow: 0 1px 2px rgba(35, 25, 25, 0.5);
+                 box-shadow: 0 1px 2px rgba(35, 25, 25, 0.5);
         }
         .paper-img{
             width: 180px; border-radius: 10px; 
@@ -53,6 +55,7 @@
             width: 700px; margin: 20px auto;
             border-radius: 10px; background-color: white;
             text-align: center;
+            box-shadow: 0 1px 2px rgba(35, 25, 25, 0.5);
         }
         
     </style>
@@ -74,7 +77,7 @@
                     // ` 멀티라인 '," + 로 연장
                     $(`<div class="paper">
                             <div class="paper-holder">
-                                <img src="https://loremflickr.com/400/` +crand(500,800)+`" class="paper-img">
+                                <img src="https://loremflickr.com/400/` +crand(500,800)+`"class="paper-img">
                             </div>
                             <div class="paper-content">
                                 <a class="paper-link" href="#">
@@ -96,12 +99,81 @@
                     isAnimated: false
                 });
             });
+
+            // 라이트박스 보기 함수
+            let showLightbox = function(obj) {
+                var img_src = obj.getElementsByTagName('img')[0].src // paper의 이미지 소스
+                $('#random-image').attr('src', img_src);
+                
+                $('#darken-background').show(); // display:none -> display:block
+                $('#darken-background').css('top', $(window).scrollTop());
+                $('body').css('overflow', 'hidden');
+            }
+            
+            // 라이트박스 숨기기 함수
+            let hideLightbox = function() {
+                $('#darken-background').hide();
+                $('body').css('overflow', '');
+            }
+
+            $('.paper').click(function() {
+                showLightbox(this);
+            });
+
+            $('#darken-background').click(function() {
+                hideLightbox();
+            });
+
+            $('#lightbox').click(function(event) {
+                event.stopPropagation(); // darken-background에 발생하는 이벤트를 lightbox로 전달X
+            });
+
+            // 테마 작업
+            $('#btnLight').addClass('active'); // 라이트 테마를 기본으로 한다
+
+            $('#btnLight').click(function() { /* 구현내용 */ 
+                $('html').attr('data-bs-theme', 'light');
+                $('#btnDark').removeClass('active');
+                $('#btnLight').addClass('active');
+                $('#iconTheme').attr('class', 'bi bi-brightness-high-fill');
+                $('#fix-header').attr('class', 'main-header p-3 mb-3 fixed-top bg-white');
+            });
+            $('#btnDark').click(function() { /* 구현내용 */
+                $('html').attr('data-bs-theme', 'dark');
+                $('#btnDark').addClass('active');
+                $('#btnLight').removeClass('active');
+                $('#iconTheme').attr('class', 'bi bi-moon-stars-fill');
+                $('#fix-header').attr('class', 'main-header p-3 mb-3 fixed-top bg-black');
+            });
+            // css body-background 제거, main-header 영역 bg-white 제거
         });
     </script>
 </head>
 <body>
+    <!-- 오른쪽아래 바닥 테마변경 아이콘영역 -->
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle z-3">
+        <button class="btn btn-primary py-2 dropdown-toggle d-flex align-items-center" 
+                data-bs-toggle="dropdown" id="bd-theme" type="button">
+            <i id="iconTheme" class="bi bi-brightness-high-fill"></i>
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                <button id="btnLight" type="button" class="dropdown-item d-flex align-items-center"
+                        data-bs-theme-value="light" aria-pressed="true">
+                    <i class="bi bi-brightness-high-fill"></i>&nbsp;Light
+                </button>
+            </li>
+            <li>
+                <button id="btnDark" type="button" class="dropdown-item d-flex align-items-center"
+                        data-bs-theme-value="dark" aria-pressed="false">
+                    <i class="bi bi-moon-stars-fill"></i>&nbsp;Dark
+                </button>
+            </li>
+        </ul>
+    </div>
+    <!-- 아이콘 영역 종료 -->
     <!-- 머리글 영역 시작 -->
-    <div class="header p-3 mb-3 fixed-top bg-white">
+    <div id="fix-header" class="main-header p-3 mb-3 fixed-top bg-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center">
                 <a href="/" class="d-flex">
@@ -170,7 +242,7 @@
                 <h3>About me...</h3>
             </div>
             <hr class="lightbox-splitter">
-            <img id="random-image" src="https://picsum.photos/400/750">
+            <img id="random-image" src="https://loremflickr.com/400/750">
         </div>
     </div>
     <!-- 라이트박스 영역 끝 -->
