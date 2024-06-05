@@ -1,0 +1,52 @@
+<!-- DAY06 24. 06. 05 -->
+<!-- cloning04_scroll_page.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Moon Light Parallax Effects</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="./css/cloning04_style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Logo</a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">contact</a></li>
+        </ul>
+    </header>
+    <section>
+        <img src="./images/bg.jpg" id="bg">
+        <img src="./images/moon.png" id="moon">
+        <img src="./images/mountain.png" id="mountain">
+        <img src="./images/road.png" id="road">
+        <h2 id="text">Moon Light</h2>
+    </section>
+    <script type="text/javascript">
+        let bg = document.getElementById("bg");
+        let moon = document.getElementById("moon");
+        let mountain = document.getElementById("mountain");
+        let road = document.getElementById("road");
+        let text = document.getElementById("text");
+
+        window.addEventListener('scroll', function() {
+            var value = window.scrollY;
+
+            bg.style.top = value * 0.5 + 'px';
+            moon.style.left = -value * 0.5 + 'px';
+            mountain.style.top = -value * 0.15 + 'px';
+            road.style.top = value * 0.15 + 'px';
+            text.style.top = value * 1 + 'px';
+        });
+    </script>
+    <div class="sec">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id, numquam temporibus ipsa eius aliquid illum hic dolorum, nam debitis laboriosam dolore ea quae exercitationem nisi voluptates. Error harum voluptatum sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sunt repellat provident non repellendus quidem fugiat autem obcaecati quasi earum eius adipisci beatae eos odio reprehenderit cumque quam, nulla voluptatibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam tenetur libero vitae, vel quo minus quae doloremque dolor! Minus repellat consectetur dolor eveniet ullam velit corporis eum laudantium aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magni, impedit debitis nobis beatae dolorem ab amet maiores iusto numquam molestiae facere, obcaecati fuga vero labore blanditiis ipsum? Eaque, nemo. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor vero tempore, reiciendis, recusandae ut esse laboriosam numquam aperiam repellendus et quos, odio fugit consequatur at qui! Eos cumque minus illo?<br><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id, numquam temporibus ipsa eius aliquid illum hic dolorum, nam debitis laboriosam dolore ea quae exercitationem nisi voluptates. Error harum voluptatum sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error sunt repellat provident non repellendus quidem fugiat autem obcaecati quasi earum eius adipisci beatae eos odio reprehenderit cumque quam, nulla voluptatibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nam tenetur libero vitae, vel quo minus quae doloremque dolor! Minus repellat consectetur dolor eveniet ullam velit corporis eum laudantium aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magni, impedit debitis nobis beatae dolorem ab amet maiores iusto numquam molestiae facere, obcaecati fuga vero labore blanditiis ipsum? Eaque, nemo.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus odio cumque ea dolore amet quasi nostrum nihil quidem nisi incidunt pariatur, hic non voluptate vero. Rerum, ducimus? Esse, maiores optio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut in veniam tempora amet laboriosam, debitis libero odio quo accusantium vel aperiam quidem natus ipsum minus corporis impedit nostrum quasi numquam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat dicta laborum, aut fugit architecto nihil corporis quisquam repellat consectetur perferendis tempore totam veniam, ad animi impedit enim consequatur eaque saepe?</p>
+    </div>
+</body>
+</html>
