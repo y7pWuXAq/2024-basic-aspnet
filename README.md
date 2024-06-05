@@ -401,3 +401,7 @@ IoT 개발자 과정 ASP.NET 리포지토리
     
     - 웹 페이지 클로닝 : 이미지 슬라이더
 
+
+        https://github.com/y7pWuXAq/2024-basic-aspnet/assets/158008080/58f881ef-6308-4f78-aa43-a709d827879e
+
+
