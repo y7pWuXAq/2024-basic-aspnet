@@ -390,5 +390,9 @@ IoT 개발자 과정 ASP.NET 리포지토리
         - 핀터레스트 + 부트스트랩 타입 웹페이지 듀토리얼 따라하기
 
 
+        https://github.com/y7pWuXAq/2024-basic-aspnet/assets/158008080/f0f5594a-0263-4545-ad87-a02094085e8b
+
+
+
 
         
