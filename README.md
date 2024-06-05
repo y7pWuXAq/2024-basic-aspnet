@@ -380,3 +380,15 @@ IoT 개발자 과정 ASP.NET 리포지토리
 
     - Codehal 유튜버 로그인 웹페이지 듀토리얼 따라하기
         <img src="https://raw.githubusercontent.com/y7pWuXAq/2024-basic-aspnet/main/images/an001.png" width="730" alt="Codehal 로그인창 따라하기"> 
+
+
+
+### DAY 06
+
+- HTML + CSS + js(jQuery) 응용
+    - 웹 페이지 클로닝
+        - 핀터레스트 + 부트스트랩 타입 웹페이지 듀토리얼 따라하기
+
+
+
+        
