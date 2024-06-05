@@ -394,3 +394,7 @@ IoT 개발자 과정 ASP.NET 리포지토리
 
 
     - 웹 페이지 클로닝 (스크롤 페이지)
+
+
+      https://github.com/y7pWuXAq/2024-basic-aspnet/assets/158008080/01838f83-405d-425d-a152-3a63ab6da07e
+
