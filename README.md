@@ -383,7 +383,7 @@ IoT 개발자 과정 ASP.NET 리포지토리
 
 
 
-### DAY 06
+### DAY 06 - 07
 
 - HTML + CSS + js(jQuery) 응용
     - 웹 페이지 클로닝
@@ -405,3 +405,96 @@ IoT 개발자 과정 ASP.NET 리포지토리
         https://github.com/y7pWuXAq/2024-basic-aspnet/assets/158008080/58f881ef-6308-4f78-aa43-a709d827879e
 
 
+
+### DAY 08
+
+- ASP.NET
+    - ASP.NET의 역사
+        - 1990년대 MS가 웹 서버기술로 ASP(Active Server Page)를 배포. like JSP(Java Sever Page)
+        - ASP는 .NET으로 된 언어가 아닌, VBScript를 사용. 타입 확장자(*.asp)
+        - 개발이 쉬워서 많이 사용함
+        - 스파게티 코드 : HTML + CSS + JavaScript + VBScript 모두 사용해 만든 웹 페이지
+        - 유지보수가 어렵고 성능이 나쁨
+
+        - 2000년대 MS가 .NET Framwork를 발표.
+        - C#, VB.NET, C++.NET 등의 새로운 언어를 배포, 여기에 맞춰서 웹 서버기술을 다시 만듬 > ASP.NET
+        - 가장 큰 장점은 윈폼 개발 하는 것처럼 웹 개발을 할 수 있었음.
+        - 초창기에 스파게티 코드를 거의 그대로 사용, 성능도 안좋음!
+        - 2009년 ASP.NET MVC(Model View Controller 디자인 패턴)공표, 성능은 좋아짐.
+        - 하지만 윈도우에서만 동작
+        - 모든 OS 플랫폼에서 동작할 수 있는 .NET Core를 재출시.
+        - 거기에 웹 서버기술을 또다시 만듬 > ASP.NET Core
+    
+    - .NET Core(현재는 .NET 9.0, Core라는 이름은 사용X)의 장점
+        - 빠르고 오픈소스
+        - 크로스 플랫폼, OS에 종속받지 않음
+        - 성능 좋음.
+    
+    - ASP.NET 종류
+        - ~~ASP.NET webforms : 2000년도 초반에 나오다가 사장된 웹사이트 개발기술~~
+        - **ASP.NET Core웹 앱(MVC) : 가장 기본적인 프론트엔드(HTML, CSS, JS .cshtml) + 백엔드 (C# .aspx.cs) 웹개발**
+        - **ASP.NET Core웹 API : 데이터포털, 네이버, 카카오, 영화API 사이트를 만드는 백엔드 (프론트엔드가 없어서 화면이 없음)**
+        - ~~Edge용 웹 드라이버 테스트 : 엣지 브라우저에 종속된 테스트 용~~
+        - Js(Veu, Angular, React) 프론트엔드 + ASP.NET Core 백엔드
+        - ASP.NET Core gRPC 서비스 : 고성능 원격프로시저호출(스트리밍 호출) 서비스
+        - Blazor : Js 프론트엔드를 따라서 C# 컴포넌트 기반으로 개발하는 웹 개발 방식 웹사이트 개발
+        - Razor : 프론트엔드 개발에 C# 코드가 특화되서 사용되는 웹사이트 개발방식
+        - .NET Aspire : Blazor 프론트엔드 + Redis + 웹 API 백엔드
+
+    - 참조사이트
+        - https://learn.microsoft.com/ko-kr/aspnet/core/?view=aspnetcore-3.1
+        - https://github.com/dotnet
+        - https://mixedcode.com/
+        - https://github.com/gilbutITbook/006824
+
+    - ASP.NET Core 웹앱(MVC : Model-View-Controller)
+        - 현재 기본적인 웹개발의 가장 표준
+        - Java 계열도 Spring (Boot) MVC로 개발
+        - MVC 개념도
+            <img src="https://raw.githubusercontent.com/y7pWuXAq/2024-basic-aspnet/main/images/an002.png" width="730">
+
+        - 예전에는 프론트엔드의 스파게티코드가 무지 심했다면 현재는 최소화 되어 있음(SpringBoot Python flask등 모두 동일)
+        - IIS Express Server : VS에서 ASP.NET 웹사이트를 운영하는 개발용 웹서버 이름
+        - index.* : 웹사이트 가장 대문되는 페이지 이름
+        - 파일 저장 시 핫다시로드(HotReload) 체크하면 편함
+        - @로 시작하는 C# 구문, Tag helper, HTML helper로 HTML구문 내에 C# 코드를 적어서 활용하는 방법 = Razor 구문
+        - Action == HTML에서 from 태그 내 submit버튼 클릭! / 링크를 클릭하는 것, 윈앱에서 이벤트와 동일
+        - 액션이 발생한 이후 처리하는 메서드의 결과를 ActionResult
+        - 콘솔 서버로그 잘 확인할 것, 프로세스가 종료되면 웹사이트가 실행안됨
+
+    - 데이터베이스 연동방법
+        - DB first : 가장 전통적인 DB 연동방식. DB설계, DB구축, C#과 연동
+        - code first : 최근 트렌드가 되는 DB 연동 방식. C#클래스 작성, DB연결 설정 후 실행하면 DB에 테이블이 생성
+        - EntityFramework를 사용하면 아주 손쉽게 구축가능
+
+    - EntityFramework(Core) 설치
+        - Microsoft.EntityFrameworkCore
+        - Microsoft.EntityFrameworkCore.Tools
+        - Microsoft.EntityFrameworkCore.SqlServer
+
+    - Code first 구현 순서
+        - EF 패키지 설치
+        - 엔티티 클래스 작성
+        - appsetting.json에 DB연결 문자열 추가
+        - Data/ApplicationDbContext.cs 중간연결 클래스 생성
+        - Program.cs Services 내에 DbContext 종속성을 주입
+        - NuGet 패키지 관리자 > 패키지 관리자 콘솔 실행
+            ```shell
+            PM> Add-migration (마이그레이션명)
+            Build started...
+            Build succeeded.
+            ...
+            PM> update-database
+            ...
+            Done.
+            ```
+
+
+
+### DAY 09(07.22 예정)
+
+- ASP.NET Core MVC
+    - 필요 이론
+    - 연습
+    - 개인 포트폴리오 웹사이드 (미리 디자인해보기!)
+    - Bootstrap 테마 적용
