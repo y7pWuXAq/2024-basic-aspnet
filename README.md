@@ -1,5 +1,5 @@
 ## 2024-basic-aspnet
-IoT 개발자 과정 ASP.NET 리포지토리
+IoT 개발자 과정 ASP.NET 학습 리포지토리
 
 
 
