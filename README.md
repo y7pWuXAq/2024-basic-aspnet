@@ -534,7 +534,11 @@ IoT 개발자 과정 ASP.NET 학습 리포지토리
     - Program.cs에 DbContext 종속성 주입
     - NuGet 패키지 관리자 콘솔 > Add-Migration, Update-Database 진행
     - _layout.cshtml Board 링크 수정
+    
     - /Controller/BoardController.cs 를 생성(모델, 뷰 연결)
+        - Entity Framework를 사용하며 뷰가 포함된 MVC컨트롤러
+
+        <img src="https://raw.githubusercontent.com/y7pWuXAq/2024-basic-aspnet/main/images/aspn05.png" width="600">
 
 
 
