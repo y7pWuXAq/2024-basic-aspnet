@@ -407,6 +407,9 @@ IoT 개발자 과정 ASP.NET 학습 리포지토리
 
 
 ### DAY 08
+- 웹퍼블리시 : HTML, CSS, JavaScript를 이용해 웹페이지만 개발
+- 프론트엔드 개발자 : 웹퍼블리시가 만든 웹페이지에 백엔드와 연계를 해서 실제 동작하는 페이지 개발(개발자)
+    - json, 백엔드, DB 전반적인 개발 지식
 
 - ASP.NET
     - ASP.NET의 역사
@@ -416,6 +419,7 @@ IoT 개발자 과정 ASP.NET 학습 리포지토리
         - 스파게티 코드 : HTML + CSS + JavaScript + VBScript 모두 사용해 만든 웹 페이지
         - 유지보수가 어렵고 성능이 나쁨
 
+
         - 2000년대 MS가 .NET Framwork를 발표.
         - C#, VB.NET, C++.NET 등의 새로운 언어를 배포, 여기에 맞춰서 웹 서버기술을 다시 만듬 > ASP.NET
         - 가장 큰 장점은 윈폼 개발 하는 것처럼 웹 개발을 할 수 있었음.
@@ -424,10 +428,11 @@ IoT 개발자 과정 ASP.NET 학습 리포지토리
         - 하지만 윈도우에서만 동작
         - 모든 OS 플랫폼에서 동작할 수 있는 .NET Core를 재출시.
         - 거기에 웹 서버기술을 또다시 만듬 > ASP.NET Core
+        - ASP.NET은 C#이 아닌 다른 .NET 언어로도 개발가능. 그 중에서 C#을 사용
     
     - .NET Core(현재는 .NET 9.0, Core라는 이름은 사용X)의 장점
         - 빠르고 오픈소스
-        - 크로스 플랫폼, OS에 종속받지 않음
+        - **크로스 플랫폼**, OS에 종속받지 않음
         - 성능 좋음.
     
     - ASP.NET 종류
@@ -491,10 +496,77 @@ IoT 개발자 과정 ASP.NET 학습 리포지토리
 
 
 
-### DAY 09(07.22 예정)
+### DAY 09(07.16)
 
 - ASP.NET Core MVC
-    - 필요 이론
-    - 연습
-    - 개인 포트폴리오 웹사이드 (미리 디자인해보기!)
-    - Bootstrap 테마 적용
+    - MVC 리뷰
+        - Model은 개발자가 따로 만듬
+        - View, Controller 폴더는 미리 만들어짐
+        - 웹브라우저에서 접근할 페이지를 만드는 작업 순서
+            - 해당 컨트롤러 생성
+            - 뷰를 같이 생성할지 나중에 따로 만들지 선택(같이 만드는게 편함.)
+            - 컨트롤러 이름과 동일한 뷰 폴더, 메서드 이름과 동일한 cshtml 페이지가 생성
+            - 컨트롤러에 모델에서 DB와 연결될 내용을 작성
+            - 모델내용을 뷰로 리턴
+
+- ASP.NET Core 개인 포트폴리오 웹사이트, MyPortfolio
+    - Visual Studio 에서 ASP.NET Core 웹앱(MVC) 프로젝트 생성
+    - 부트스트랩 템플릿 사이트에서 알맞은 템플릿을 다운로드
+    - wwwroot 폴더 밑에 템플릿 htmml, css jaball 이미지 등 위치
+    - 템플릿 페이지에 공통적인 부분(Header, Bottom)은 _layout.cshtml에 위치
+    - 중간에 페이지마다 변경되는 부분은 각 Views 밑에 포함
+    - _layout.cshtml에 공통부분 옮기기
+    - index.cshtml에 index.html에서 공통부분 외 영역 옮기기
+    - index.cshtml 내용 수정
+    - ResumeController.cs 생성
+        - DB관련된 설정이 없으면 모델, 뷰를 만들기 어려움
+    - Resume란 폴더가 Views 아래에 생성 Index.cshtml
+    - resume.html에 네비게이션 아래 변경부분만 복사해서 index.cshtml에 붙혀넣기
+    - Project, Contact도 동일하게 적용
+
+    - Code First 방식으로 Board 테이블 생성
+    - Microsoft.EntityFrameworkCore 패키지 설치
+    - Microsoft.EntityFrameworkCore.Tools 패키지 설치
+    - Microsoft.EntityFrameworkCore.SqlServer 패키지 설치
+    - model/Board.cs로 엔티티 클래스 생성
+    - appsettings.json에 DB 연결 문자열 추가
+    - Data/AppDbContex.cs 생성
+    - Program.cs에 DbContext 종속성 주입
+    - NuGet 패키지 관리자 콘솔 > Add-Migration, Update-Database 진행
+    - _layout.cshtml Board 링크 수정
+    - /Controller/BoardController.cs 를 생성(모델, 뷰 연결)
+
+
+
+### DAY 10
+
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    - Board.cs 멤버속성 ModeDate > ModDate
+        - BoardController.cs 에서 ModeDate > ModDate 변경
+        - Views/Board/*.cshtml ModeDate > ModDate 변경
+    - ASP.NET Core 템플릿으로 만들어주는 CRUD(Insert, Select, Update, Delete)
+    - 테이블 삭제, 재생성
+    - 게시판 관련된 화면 수정작업
+        - Views/Board/Index.cshtml 게시판 리스트화면 수정
+        - Index.cshtml 테이블 틀 변경, 삭제, 수정, 상세버튼 삭제
+        - Models/Board.cs에 테이블 한글이름 추가
+            ```
+                [DisplayName()]
+            ```
+
+        - Views/Board/Details.cshtnml 부트스트랩 적용
+        - 수정, 삭제 등 버튼 디자인 적용
+        - Views/Board/Create.cshtml 부트스트랩 적용
+
+    - SSMS에서 Board 테이블에 Hit, RegDate, ModDate Null 허용으로 변경
+
+    - 웹사이트 동작 순서
+        - https://localhost:7017/Board/Create 링크 오픈
+        - BoardController > Create 액션메서드 실행
+        - Submit > BoardController > Create 액션메서드 발동
+        - Create 액션 메서드 내 로직처리 DB에 데이터 입력
+        - Models/Board.cs ModeDate를 DateTime > DateTime? 변경
+
+    - 페이징
+    - 회원가입, 로그인 ...
+    - 관리자모드, 페이지
