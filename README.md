@@ -620,6 +620,8 @@ IoT 개발자 과정 ASP.NET 학습 리포지토리
         - 실제 사용페이지에서 특정 js만 실행하면 사용 가능
         - Create.cshtml, Edit.chhtml은 동일하게 작업
         - NuGet 패키지 Westwind.AspNetCore.Markdown 검색
+        
+        <img src="https://raw.githubusercontent.com/y7pWuXAq/2024-basic-aspnet/main/images/aspn06.png" width="600">
 
 
 
