@@ -1,6 +1,7 @@
 using Microsoft.CodeAnalysis.Options;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Data;
+using Westwind.AspNetCore.Markdown; // 마크다운 패키지 추가
 
 namespace MyPortfolio
 {
@@ -16,6 +17,10 @@ namespace MyPortfolio
             builder.Services.AddDbContext<AppDbContext>(Option => Option.UseSqlServer(
                 builder.Configuration.GetConnectionString("Myconnection")));
 
+            // MarkDown 관련 설정
+            builder.Services.AddMarkdown();
+            builder.Services.AddMvc().AddApplicationPart(typeof(MarkdownPageProcessorMiddleware).Assembly);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -26,11 +31,11 @@ namespace MyPortfolio
                 app.UseHsts();
             }
 
+            app.UseMarkdown(); // 마크다운 사용설정
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.MapControllerRoute(

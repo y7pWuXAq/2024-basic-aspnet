@@ -1,4 +1,5 @@
-﻿@model MyPortfolio.Models.Board
+﻿@using Westwind.AspNetCore.Markdown
+@model MyPortfolio.Models.Board
 
 @{
     ViewData["Title"] = "Board";
@@ -30,10 +31,11 @@
                 </div>
             </div>
             <div class="row p-2">
-            <div class="col" style="min-height:200px">
-                @Html.DisplayFor(model => model.Contents)
+                <div class="col" style="min-height:200px">
+                    @* @Html.DisplayFor(model => model.Contents) *@
+                    @Markdown.ParseHtmlString(Model.Contents)
+                </div>
             </div>
-        </div>
         </div>
         <div class="px-2">
             <a asp-controller="Board" asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">
@@ -49,4 +51,25 @@
     </div>
 </section>
 
+@section Scripts {
+    <script>
+        /* 삭제 여부 함수 */
+        function confirmDelete(id) {
+            // alert(id);
+            var result = confirm("삭제하시겠습니까?"); // 1(true), 0(flase)
 
+            if (result) {
+                // alert(id);
+                /* 삭제 POST를 ajax로 호출 */
+                $.ajax({
+                    // url: 'https://localhost:7165/Board/Delete/' + id >> 옛날 방식(ip나 port 번호가 바뀔 때 마다 변경해야 함)
+                    url: '@Url.Action("Delete")/' + id, // Url.Action > ASP.NET Core 백엔드 액션메서드 호출
+                    type: 'POST', // POST 액션 메서드를 호출
+                    success: function (data) {
+                        window.location.href = '@Url.Action("Index")'; // 문자열로 변경! (중요!)
+                    }
+                });
+            }
+        }
+    </script>
+}

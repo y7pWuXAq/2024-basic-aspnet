@@ -278,9 +278,9 @@ IoT 개발자 과정 ASP.NET 학습 리포지토리
     - 반응형 웹(Responsive Web)
         - 메타 태그 viewport를 사용하면 그때부터 반응형 웹이 된다.
         
-        ```html
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        ```
+            ```html
+            <meta name='viewport' content='width=device-width, initial-scale=1'>
+            ```
 
         - @media 태그 : 디바이스 종류별로 CSS 따로 디자인 가능
 
@@ -566,7 +566,67 @@ IoT 개발자 과정 ASP.NET 학습 리포지토리
         - Submit > BoardController > Create 액션메서드 발동
         - Create 액션 메서드 내 로직처리 DB에 데이터 입력
         - Models/Board.cs ModeDate를 DateTime > DateTime? 변경
+        - Edit 동일, Create.cshtml 내용을 그대로 복사 / 붙혀넣기
+            - 단, asp-action="Edit"로 변경!!!
 
+
+
+### DAY 11
+
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    - EntityFreamework SQL 사용 없이 DB 핸들링
+        - DBContext.Add(삽입), Update(수정), Remove(삭제) 기능 존재
+        - 위의 명령을 실행 후 DBContext.SaveChangesAsync(); 실행해서 실제 DB에 반영해야 함
+        - ToListAsync(), FirstOrDefaultAsync()는 SELECT로 트랜잭션이 발생X >> SaveChangesAsync()를 실행하지 않음
+    - 글 조회수 올리기
+    - 게시글 삭제
+        - _layout.cshtml의 @await RenderSectionAsync("Scripts", required: false) 이부분이 각 페이지에 필요시 스크립트 영역을 만들어 사용하라는 의미
+        - ajax 삭제는 나중에 다시
     - 페이징
+        - 웹사이트에서 가장 중요한 기능 중 하나
+        - 한 페이지에 표시할 수 있는 글의 수를 제한
+        - 스크롤 페이징
+        - 번호 페이징
+            - BoardController.cs의 Index() 액션메서드 내 FromSql()로 변경(비동기 적용 안됨, 비동기 부분 제거)
+            - 페이징용 쿼리 작성
+
+                ```sql
+                SELECT *
+                  FROM (
+				        SELECT ROW_NUMBER() OVER(ORDER BY Id DESC) AS rowNum
+			  	        	 , Id
+				        	 , Name
+				        	 , UserId
+				        	 , Title
+				        	 , Contents
+				        	 , Hit
+				        	 , RegDate
+				        	 , ModDate
+				          FROM Board
+            	    ) AS base
+                 WHERE base.rowNum BETWEEN 1 AND 10 -- 1과 10에 10씩 더하면 다음페이지를 조회 쿼리
+                ```
+
+            - Index() 내 로직 수정
+            - Views/Board/Index.cshtml 화면코드 수정
+    - 검색
+        - FromSqlRaw() 메서드 변경
+        - html 링크에 ?page=1&search=검색어 추가
+
+    - HTML 에디터
+        - Markdown 에디터
+        - simplemde(https://simplemde.com)
+        - _layout.cshtml에 js, css 링크만 추가
+        - 실제 사용페이지에서 특정 js만 실행하면 사용 가능
+        - Create.cshtml, Edit.chhtml은 동일하게 작업
+        - NuGet 패키지 Westwind.AspNetCore.Markdown 검색
+
+
+
+### DAY 12
+
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+
+    - 삭제 로직 수정
     - 회원가입, 로그인 ...
     - 관리자모드, 페이지
